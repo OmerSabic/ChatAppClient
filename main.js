@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain, ipcRenderer } = require('electron')
+//var socket = require('./app/socket.io/socket.io.min.js');
 
 var win;
 var srv;
@@ -37,6 +38,9 @@ app.whenReady().then(createWindow)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
+    if(srv) {
+
+    }
     app.quit()
   }
 })

@@ -19,7 +19,13 @@ socket.on('chatMsg', data => {
 
 socket.on('connectedUser', data => {
     var newli = document.createElement('li');
-    newli.textContent = data + ' has joined the chat!';
+    newli.textContent = data.user + ' has joined the chat!\n'+data.users.toString()+' total users.';
     //newli.setAttribute('class', 'console');
+    document.getElementById('messages').appendChild(newli);
+})
+
+io.on('userDsconnect', data => {
+    var newli = document.createElement('li');
+    newli.textContent = data.user + ' has left the chat!\n'+data.users.ToString()+' total users.';
     document.getElementById('messages').appendChild(newli);
 })
